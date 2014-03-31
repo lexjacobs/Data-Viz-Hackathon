@@ -18,3 +18,4 @@ Planned iterations, as time allows:
   * Add representative markers for the bike stations.
   * Render additional trips simultaneously.
   * Superimpose the trips upon a googleMap via the public api.
+  * Serve pages via Node Express
