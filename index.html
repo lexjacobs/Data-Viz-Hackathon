@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <title>Bay Area Bike Share Visualization Feb 2014</title>
-<script type='text/javascript' src='d3/d3.js'></script>
+
+<meta charset='utf-8'>
+<title>Bay Area Bike Share Visualization Feb 2014</title>
+
+<script src='script/d3/d3.js'></script>
+<script src='script/stationJSON.js'></script>
+<script src='script/underscore.js'></script>
+
 </head>
 
 <style type='text/css'></style>
@@ -12,14 +17,54 @@
 
 
 <script>
-/* global d3 */
+/* global d3, _ */
+var w = 600;
+var h = 600;
+
 var svg = d3.select('body')
             .append('svg')
-            .attr('width', 600)
-            .attr('height', 600);
+            .attr('width', w)
+            .attr('height', h);
+
+var dataset = [
+  [20, 40, 60, 80],
+  [120, 140, 60, 180],
+  [220, 240, 560, 280],
+  [320, 340, 360, 380],
+  [420, 440, 260, 480],
+
+];
+
+
+var circles = svg.selectAll('circle')
+  .data(dataset)
+  .enter()
+  .append('circle')
+  .attr('cx', function(d){
+    return d[0];
+  })
+  .attr('cy', function(d){
+    return d[1];
+  })
+  .attr('r', 10)
+  .attr('fill', 'yellow')
+  .attr('stroke', 'orange')
+  .attr('stroke-width', '2');
+
+circles
+  .transition()
+  .delay(100)
+  .duration(500)
+  .attr('cx', function(d){
+    return d[2];
+  })
+  .attr('cy', function(d){
+    return d[3];
+  });
+
+
 
 </script>
-
 
 </body>
 </html>
