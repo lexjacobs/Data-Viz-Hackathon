@@ -155,12 +155,15 @@ var generateVis = function(selectedDay){
     return (Math.abs(n) - 122.388013) * yScaler;
   };
 
-   circles = svg.selectAll('circle')
+   svg.selectAll('circle')
     .data(dataset)
     .enter()
-    .append('circle')
+    .append('circle');
+
+
+  circles = svg.selectAll('circle')
     .attr('cx', function(d){
-      // console.log('latd0', latScaler(d[0]));
+      // console.log('selectedDay: ', selectedDay);
       // console.log(d[4]);
       if(d[4] === selectedDay || selectedDay === 'all'){
         return latScaler(d[0])+10;
@@ -168,8 +171,8 @@ var generateVis = function(selectedDay){
     })
     .attr('cy', function(d){
       // console.log('latd1', longScaler(d[1]));
-      // console.log(d[4]);
       if(d[4] === selectedDay || selectedDay === 'all'){
+        // console.log(d[4]);
         return longScaler(d[1])+10;
       }
     })

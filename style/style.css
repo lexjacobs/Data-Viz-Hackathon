@@ -1,10 +1,5 @@
-.bike {
-  background-image: url(../images/bike.png);
-  background-size: 100%, 100%;
-  position: absolute;
-  fill: blue;
-}
-
-.test {
+.topBar {
+  font-family: sans-serif;
+  font-size: 20px;
   color: blue;
 }

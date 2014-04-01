@@ -10,14 +10,16 @@
 <script src='script/tripData.js'></script>
 <script src='script/jquery-1.11.0.min.js'></script>
 <script src='script/generateVis.js'></script>
-<!-- <link rel='stylesheet' type='text/css' href='style/style.css'> -->
+<link rel='stylesheet' type='text/css' href='style/style.css'>
 
 </head>
 
 <body>
+<div class = 'topBar'>
 <input class = 'day'>day</input>
 <button class = 'launch'>launch</button>
 <div class = 'buffer'></div>
+</div>
 
 <script >
 var w = 1000;
@@ -28,21 +30,24 @@ var yScale;
 var svg = d3.select('.buffer')
             .append('svg')
             .attr('width', w)
-            .attr('height', h);
+            .attr('height', h)
+            .append('g');
 
             svg.append('rect')
                 .attr('fill', 'rgb(129,198,188)')
                 .attr('width', '100%')
-                .attr('height', '100%')
+                .attr('height', '100%');
 
-  generateVis(3);
+  generateVis(2);
 
   $(function(){
     $('.launch').on('click', function(){
-      // console.log($('.day').val());
+      // d3.selectAll('circle').remove();
+      // console.log("day val", $('.day').val());
       var gV = ($('.day').val());
-      // console.log(gV);
+      console.log("gV", gV);
       // cicles.remove();
+      gV = parseInt(gV, 10);
       generateVis(gV);
     });
 });
