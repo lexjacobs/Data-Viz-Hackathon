@@ -144,14 +144,15 @@ var dataset = tripData;
 
 var generateVis = function(selectedDay){
 
-  var scaler = 25000;
+  var xScaler = 28000;
+  var yScaler = 15000;
 
   var latScaler = function(n){
-    return (n - 37.771058) * scaler;
+    return (n - 37.771058) * xScaler;
   };
 
   var longScaler = function(n){
-    return (Math.abs(n) - 122.388013) * scaler;
+    return (Math.abs(n) - 122.388013) * yScaler;
   };
 
    circles = svg.selectAll('circle')
@@ -162,34 +163,35 @@ var generateVis = function(selectedDay){
       // console.log('latd0', latScaler(d[0]));
       // console.log(d[4]);
       if(d[4] === selectedDay || selectedDay === 'all'){
-        return latScaler(d[0]);
+        return latScaler(d[0])+10;
       }
     })
     .attr('cy', function(d){
       // console.log('latd1', longScaler(d[1]));
       // console.log(d[4]);
       if(d[4] === selectedDay || selectedDay === 'all'){
-        return longScaler(d[1]);
+        return longScaler(d[1])+10;
       }
     })
     .attr('r', 1);
+    // .attr('fill', 'rgb(2,111,204)');
 
   circles
     .transition()
-    .delay(100)
-    .duration(3000)
+    .delay(700)
+    .duration(5000)
     .attr('cx', function(d){
       // console.log('latd2', latScaler(d[2]));
       // console.log(d[4]);
       if(d[4] === selectedDay){
-        return latScaler(d[2]);
+        return latScaler(d[2])+10;
       }
     })
     .attr('cy', function(d){
       // console.log('latd3', longScaler(d[3]));
       // console.log(d[4]);
       if(d[4] === selectedDay){
-        return longScaler(d[3]);
+        return longScaler(d[3])+10;
       }
     })
     .attr('r', 1);

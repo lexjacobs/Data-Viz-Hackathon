@@ -10,7 +10,7 @@
 <script src='script/tripData.js'></script>
 <script src='script/jquery-1.11.0.min.js'></script>
 <script src='script/generateVis.js'></script>
-
+<!-- <link rel='stylesheet' type='text/css' href='style/style.css'> -->
 
 </head>
 
@@ -21,7 +21,7 @@
 
 <script >
 var w = 1000;
-var h = 1000;
+var h = 500;
 var xScale;
 var yScale;
 
@@ -29,6 +29,11 @@ var svg = d3.select('.buffer')
             .append('svg')
             .attr('width', w)
             .attr('height', h);
+
+            svg.append('rect')
+                .attr('fill', 'rgb(129,198,188)')
+                .attr('width', '100%')
+                .attr('height', '100%')
 
   generateVis(3);
 
@@ -43,6 +48,5 @@ var svg = d3.select('.buffer')
 });
 
 </script>
-
 </body>
 </html>
