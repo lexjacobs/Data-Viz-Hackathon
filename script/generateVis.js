@@ -156,6 +156,9 @@ var datasetLoader = function(selectedDay){
 
 var generateVis = function(selectedDay){
 
+  svg.selectAll('circle')
+  .remove();
+
   var dataset = datasetLoader(selectedDay);
 
   var xScaler = 28000;

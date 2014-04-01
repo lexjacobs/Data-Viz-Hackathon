@@ -20,6 +20,7 @@
 <div class = 'topBar'>
 Rendering the start/end coordinates of <span class = 'tripCount'>0</span> bike trips on day <input style='width:20px' class = 'day'> of January, 2014</input>
 <button class = 'launch'>launch</button>
+<button class = 'wholeMonth'>entire month</button>
 <div class = 'buffer'></div>
 </div>
 
@@ -43,6 +44,17 @@ var svg = d3.select('.buffer')
   // generateVis(2);
 
   $(function(){
+
+    var dayOfMonth = 1;
+
+    var dayTripUpdater = function(){
+      var currentTrips = d3.selectAll('circle')[0].length;
+      console.log('currentTrips',currentTrips);
+      $('.tripCount').text(currentTrips);
+      $('.day').text(dayOfMonth);
+
+    };
+
     $('.launch').on('click', function(){
         d3.selectAll('circle').remove();
       // console.log("day val", $('.day').val());
@@ -51,11 +63,25 @@ var svg = d3.select('.buffer')
       // cicles.remove();
       gV = parseInt(gV, 10);
       generateVis(gV);
-      var currentTrips = d3.selectAll('circle')[0].length;
-      $('.tripCount').text(currentTrips);
+      dayTripUpdater();
       // console.log(currentTrips);
+
     });
-});
+
+    $('.wholeMonth').on('click', function(){
+      var monthCascade = setInterval(
+        function(){
+          generateVis(dayOfMonth);
+          dayTripUpdater();
+          dayOfMonth++;
+          console.log('dayOfMonth',dayOfMonth)
+          if(dayOfMonth === 32){
+            clearInterval(monthCascade);
+          }
+        }, 3000
+      );
+    });
+  });
 
 </script>
 
