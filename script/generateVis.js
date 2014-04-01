@@ -140,9 +140,23 @@ var testData = [
 //max SFlat: 37.804770
 
 // var dataset = testData;
-var dataset = tripData;
+
+var datasetSize = 0;
+
+var datasetLoader = function(selectedDay){
+  result = [];
+  for (var i = 0; i < tripData.length; i++) {
+    if(tripData[i][4] === selectedDay){  
+      result.push(tripData[i]);
+    }
+  }
+  // console.log('dataset length: ', result.length);
+  return result;
+};
 
 var generateVis = function(selectedDay){
+
+  var dataset = datasetLoader(selectedDay);
 
   var xScaler = 28000;
   var yScaler = 15000;
@@ -164,7 +178,6 @@ var generateVis = function(selectedDay){
   circles = svg.selectAll('circle')
     .attr('cx', function(d){
       // console.log('selectedDay: ', selectedDay);
-      // console.log(d[4]);
       if(d[4] === selectedDay || selectedDay === 'all'){
         return latScaler(d[0])+10;
       }
@@ -199,6 +212,8 @@ var generateVis = function(selectedDay){
     })
     .attr('r', 1);
 
+    // console.log("num circles", d3.selectAll('circle').length);
+
   // TODO: figure out exit/remove 
   // http://bost.ocks.org/mike/join/
   // http://stackoverflow.com/questions/14574364/on-click-event-d3-js-only-works-first-time
@@ -207,5 +222,5 @@ var generateVis = function(selectedDay){
       .exit()
       .remove();
 */
-    console.log('done in generateVis');
+    // console.log('done in generateVis');
 };

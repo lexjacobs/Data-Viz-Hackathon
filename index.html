@@ -15,8 +15,10 @@
 </head>
 
 <body>
+<div class = 'logo'><img src='images/babsLogo.png'></div>
+
 <div class = 'topBar'>
-<input class = 'day'>day</input>
+Rendering the start/end coordinates of <span class = 'tripCount'>0</span> bike trips on day <input style='width:20px' class = 'day'> of January, 2014</input>
 <button class = 'launch'>launch</button>
 <div class = 'buffer'></div>
 </div>
@@ -38,20 +40,24 @@ var svg = d3.select('.buffer')
                 .attr('width', '100%')
                 .attr('height', '100%');
 
-  generateVis(2);
+  // generateVis(2);
 
   $(function(){
     $('.launch').on('click', function(){
-      // d3.selectAll('circle').remove();
+        d3.selectAll('circle').remove();
       // console.log("day val", $('.day').val());
       var gV = ($('.day').val());
-      console.log("gV", gV);
+      // console.log("gV", gV);
       // cicles.remove();
       gV = parseInt(gV, 10);
       generateVis(gV);
+      var currentTrips = d3.selectAll('circle')[0].length;
+      $('.tripCount').text(currentTrips);
+      // console.log(currentTrips);
     });
 });
 
 </script>
+
 </body>
 </html>
