@@ -14,9 +14,11 @@
 <body>
 
 <script>
-/* global d3, _ */
+
 var w = 1000;
 var h = 1000;
+var xScale;
+var yScale;
 
 var svg = d3.select('body')
             .append('svg')
@@ -25,11 +27,8 @@ var svg = d3.select('body')
 
 var dataset;
 
-d3.csv('script/201402_weather_data.csv', function(data){
-  dataset = data;
-  generateVis();
-  // console.log(dataset);
-});
+
+
 
 var generateVis = function(){
 
@@ -78,32 +77,3 @@ var generateVis = function(){
 </script>
 </body>
 </html>
-
-<!--
-Object {Date: "8/29/2013", Max_Temperature_F: "74", Mean_Temperature_F: "68", Min_TemperatureF: "61", Max_Dew_Point_F: "61"…}
-"Cloud_Cover ": "4"
-Date: "8/29/2013"
-Events: ""
-Max_Dew_Point_F: "61"
-Max_Gust_Speed_MPH: "28"
-Max_Humidity: "93"
-"Max_Sea_Level_Pressure_In ": "30.07"
-Max_Temperature_F: "74"
-"Max_Visibility_Miles ": "10"
-"Max_Wind_Speed_MPH ": "23"
-MeanDew_Point_F: "58"
-"Mean_Humidity ": "75"
-"Mean_Sea_Level_Pressure_In ": "30.02"
-Mean_Temperature_F: "68"
-"Mean_Visibility_Miles ": "10"
-"Mean_Wind_Speed_MPH ": "11"
-Min_Dewpoint_F: "56"
-"Min_Humidity ": "57"
-"Min_Sea_Level_Pressure_In ": "29.97"
-Min_TemperatureF: "61"
-"Min_Visibility_Miles ": "10"
-"Precipitation_In ": "0"
-Wind_Dir_Degrees: "286"
-zip: "94107"
-__proto__: Object
- -->
