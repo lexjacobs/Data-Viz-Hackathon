@@ -33,24 +33,11 @@ var svg = d3.select('body')
 //max SFlong: -122.418954
 //max SFlat: 37.804770
 
-var dataset = 
-[
-[37.794139, -122.394434, 37.794139, -122.394434, 1],
-[37.794139, -122.394434, 37.794139, -122.394434, 1],
-[37.794139, -122.394434, 37.794139, -122.394434, 1],
-[37.794139, -122.394434, 37.784878, -122.401014, 1],
-[37.794139, -122.394434, 37.784878, -122.401014, 1],
-[37.794139, -122.394434, 37.780356, -122.412919, 1],
-[37.794139, -122.394434, 37.780356, -122.412919, 1],
-[37.792251, -122.397086, 37.789625, -122.390264, 1]
-];
-
-
-
+var dataset = tripData;
 
 var generateVis = function(){
 
-  var scaler = 1000;
+  var scaler = 10000;
 
   var latScaler = function(n){
     return (n - 37.771058) * scaler;
@@ -65,26 +52,28 @@ var generateVis = function(){
     .enter()
     .append('circle')
     .attr('cx', function(d){
-      // console.log(d);
+      // console.log('latd0', latScaler(d[0]));
       return latScaler(d[0]);
     })
     .attr('cy', function(d){
+      // console.log('latd1', longScaler(d[1]));
       return longScaler(d[1]);
     })
-    .attr('r', 1);
+    .attr('r', 2);
 
-    circles
+  circles
     .transition()
     .delay(100)
     .duration(300)
     .attr('cx', function(d){
-      // console.log(d);
+      // console.log('latd2', latScaler(d[2]));
       return latScaler(d[2]);
     })
     .attr('cy', function(d){
+      // console.log('latd3', longScaler(d[3]));
       return longScaler(d[3]);
     })
-    .attr('r', 1);
+    .attr('r', 2);
 
 };
 
