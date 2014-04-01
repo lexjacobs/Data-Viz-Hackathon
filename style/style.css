@@ -1,0 +1,7 @@
+.bike {
+  background-image: url(../images/bike.png);
+  background-size: 100%, 100%;
+  position: absolute;
+  fill: blue;
+
+}

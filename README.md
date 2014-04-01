@@ -14,8 +14,8 @@ Rendering tech:
 http://d3js.org/
 
 Planned iterations, as time allows:
-  * Change the dot to a bicycle graphic.
-  * Add representative markers for the bike stations.
   * Render additional trips simultaneously.
+  * Add representative markers for the bike stations.
+  * Change the dot to a bicycle graphic.
   * Superimpose the trips upon a googleMap via the public api.
   * Serve pages via Node Express

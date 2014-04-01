@@ -8,63 +8,59 @@
 <script src='script/d3/d3.js'></script>
 <script src='script/stationJSON.js'></script>
 <script src='script/underscore.js'></script>
+<script src='script/tripData.js'></script>
 
 </head>
 
-<style type='text/css'></style>
+<link rel="stylesheet" type="text/css" href="style/style.css">
 
 <body>
 
-
 <script>
 /* global d3, _ */
-var w = 600;
-var h = 600;
+var w = 1000;
+var h = 1000;
 
 var svg = d3.select('body')
             .append('svg')
             .attr('width', w)
             .attr('height', h);
 
-var dataset = [
-  [20, 40, 60, 80],
-  [120, 140, 60, 180],
-  [220, 240, 560, 280],
-  [320, 340, 360, 380],
-  [420, 440, 260, 480],
-
-];
-
+var dataset =tripData;
 
 var circles = svg.selectAll('circle')
   .data(dataset)
   .enter()
   .append('circle')
   .attr('cx', function(d){
-    return d[0];
+    return (d[0]-37)*2500;
   })
   .attr('cy', function(d){
-    return d[1];
+    return (d[1]+122)*2500;
   })
-  .attr('r', 10)
-  .attr('fill', 'yellow')
-  .attr('stroke', 'orange')
-  .attr('stroke-width', '2');
+  .attr('r', 2);
+  // .classed('bike', true);
+
+d3.selectAll('circle')
+  .classed('bike', true);
+
+
+  // .attr('fill', 'yellow')
+  // .attr('stroke', 'orange')
+  // .attr('stroke-width', '2')
 
 circles
   .transition()
   .delay(100)
   .duration(500)
   .attr('cx', function(d){
-    return d[2];
+    return (d[2]-37)*2500;
   })
   .attr('cy', function(d){
-    return d[3];
+    return (d[3]+122)*2500;
   });
 
 
-
 </script>
-
 </body>
 </html>
