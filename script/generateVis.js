@@ -162,7 +162,7 @@ var generateVis = function(selectedDay){
   var dataset = datasetLoader(selectedDay);
 
   var xScaler = 28000;
-  var yScaler = 15000;
+  var yScaler = 18500;
 
   var latScaler = function(n){
     return (n - 37.771058) * xScaler;
