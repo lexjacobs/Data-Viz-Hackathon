@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class = 'logo'><img src='images/babsLogo.png'></div>
+<div class = 'logo'><a href = 'http://www.bayareabikeshare.com/'><img src='images/babsLogo.png'></a></div>
 
 <div class = 'topBar'>
 Rendering the start/end coordinates of <span class = 'tripCount'>0</span> bike trips on day <input style='width:20px' class = 'day'> of January, 2014</input>
@@ -71,6 +71,7 @@ var svg = d3.select('.buffer')
     });
 
     $('.wholeMonth').on('click', function(){
+      generateVis(dayOfMonth);
       var monthCascade = setInterval(
         function(){
 
