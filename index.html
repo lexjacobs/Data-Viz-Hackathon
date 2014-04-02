@@ -83,8 +83,8 @@ var svg = d3.select('.buffer')
           dayTripUpdater();
           dayOfMonth++;
           console.log('dayOfMonth',dayOfMonth);
-          if(dayOfMonth === 32){
-            clearInterval(monthCascade);
+          if(dayOfMonth >= 32){
+            dayOfMonth = 1;
           }
         }, 3000
       );
