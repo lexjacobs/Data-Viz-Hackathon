@@ -60,6 +60,7 @@ var svg = d3.select('.buffer')
         d3.selectAll('circle').remove();
       // console.log("day val", $('.day').val());
       var gV = ($('.day').val());
+      dayOfMonth = gV;
       // console.log("gV", gV);
       // cicles.remove();
       gV = parseInt(gV, 10);
@@ -81,7 +82,7 @@ var svg = d3.select('.buffer')
           generateVis(dayOfMonth);
           dayTripUpdater();
           dayOfMonth++;
-          console.log('dayOfMonth',dayOfMonth)
+          console.log('dayOfMonth',dayOfMonth);
           if(dayOfMonth === 32){
             clearInterval(monthCascade);
           }
