@@ -1,15 +1,9 @@
-.topBar {
-  font-family: sans-serif;
-  font-size: 14px;
-  color: blue;
-}
-
 .logo {
-  float: right;
+  background-color: #ddd;
+  height : 40%;
 }
 
-.logo img {
-  height : 40%;
-  width: 40%;
-  background-color: #aaa;
+.buffer {
+  position: relative;
+  margin: auto;
 }
