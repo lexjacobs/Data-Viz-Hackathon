@@ -7,6 +7,15 @@ var yScale;
 
   $(function(){
 
+    $('body').append(
+'<a href="http://hackreactor.com"> \
+<div style="z-index: -5"><img style="position: fixed; top: 0; right: 0; border: 0;" \
+src="http://i.imgur.com/x86kKmF.png" \
+alt="Built at Hack Reactor"></div> \
+</a>');
+
+    $('.navbar').css('z-index', -1);
+
     var dayOfMonth = 1;
 
     var dayTripUpdater = function(){

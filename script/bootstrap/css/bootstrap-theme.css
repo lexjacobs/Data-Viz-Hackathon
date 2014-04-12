@@ -166,6 +166,7 @@
   background-repeat: repeat-x;
 }
 .navbar-default {
+  z-index: -1;
   background-image: -webkit-linear-gradient(top, #fff 0%, #f8f8f8 100%);
   background-image:         linear-gradient(to bottom, #fff 0%, #f8f8f8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
