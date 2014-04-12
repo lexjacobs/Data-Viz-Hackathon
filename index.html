@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="alex jacobs">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <script src='script/d3/d3.js'></script>
 
     <title>Bay Area Bike Share Visualization Feb 2014</title>
 
@@ -16,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="script/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,9 +38,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">2014 Bay Area Bike Share Open Data Challenge</a>
+          <a class="navbar-brand">
+          <img src='images/babsLogo.png' style="max-height: 35px; margin-top: -8px;" alt="Bay Area Bike Share"></div>
+          2014 Open Data Challenge</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <!-- <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -56,22 +60,54 @@
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>   -->
       </div>
     </div>
 
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Sticky footer with fixed navbar</h1>
+        <h2>D3 coordinate visualization for all trip in January, 2014.</h2>
       </div>
-      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.</p>
-      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
-    </div>
+      <p class="lead">The daily start / end coordinates of each trip are being rendered below. The large number of trips that start / end along Market Street make it easily apparent where that is in the relative coordinate system.</p>
+      <p class = "lead">Rendering the start / end coordinates of <span class = 'tripCount'>0</span> bike trips on day <span class = 'day'>1</span> of January, 2014
+      </p>
+    
+
+<!-- Rendering the start / end coordinates of <span class = 'tripCount'>0</span> bike trips on day <input style='width:50px' class = 'day' placeholder="enter day"> of January, 2014</input>
+<button class = 'launch'>launch</button>
+<button class = 'wholeMonth'>auto advance</button>
+<button class = 'cancelAdvance'>cancel</button> -->
+
+</div>
+<div class = 'well'>
+<div class = 'buffer'></div>
+</div>
+
+<script>
+var w = 1000;
+var h = 600;
+var xScale;
+var yScale;
+
+var svg = d3.select('.well')
+            .append('svg')
+            .attr('width', w)
+            .attr('height', h)
+            .append('g');
+
+            svg.append('rect')
+                .attr('fill', 'rgb(129,198,188)')
+                .attr('width', '100%')
+                .attr('height', '100%');
+</script>
+
+</div>
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">Created as a short hackathon project at: 
+        <a href="http://www.hackreactor.com"><img style="max-height: 30px; margin: 0 10px" src="images/hack_reactor_logo.png"></a> by Alex Jacobs. <a href="https://github.com/lexjacobs/2014-02-HR-Hackathon"> Open-source code available on GitHub</a>.</p>
       </div>
     </div>
 
@@ -83,7 +119,6 @@
     <script src="script/bootstrap/js/bootstrap.min.js"></script>
     <script src='script/svgAppender.js'></script>
     <script src='script/generateVis.js'></script>
-    <script src='script/d3/d3.js'></script>
     <script src='script/tripData.js'></script>
     <script src='script/testData.js'></script>
   </body>

@@ -62,7 +62,7 @@ var generateVis = function(selectedDay){
   circles
     .transition()
     .delay(300)
-    .duration(3000)
+    .duration(3400)
     .attr('cx', function(d){
       // console.log('latd2', latScaler(d[2]));
       // console.log(d[4]);

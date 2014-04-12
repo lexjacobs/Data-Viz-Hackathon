@@ -1,20 +1,19 @@
-var w = 1000;
-var h = 600;
-var xScale;
-var yScale;
 
   // generateVis(2);
 
   $(function(){
 
-    $('body').append(
-'<a href="http://hackreactor.com"> \
-<div style="z-index: -5"><img style="position: fixed; top: 0; right: 0; border: 0;" \
-src="http://i.imgur.com/x86kKmF.png" \
-alt="Built at Hack Reactor"></div> \
-</a>');
+//     $('body').append(
+// '<a href="http://hackreactor.com"> \
+// <div id="hrBanner"><img style="position: fixed; top: 0; right: 0; border: 0;" \
+// src="http://i.imgur.com/x86kKmF.png" \
+// alt="Built at Hack Reactor"></div> \
+// </a>');
+    // $('#hrBanner').css('z-index', 99);
 
-    $('.navbar').css('z-index', -1);
+    $('.navbar-default').css('background-color', '#0070cd');
+    $('.navbar-brand').css('color', '#fff');
+
 
     var dayOfMonth = 1;
 
@@ -22,7 +21,7 @@ alt="Built at Hack Reactor"></div> \
       var currentTrips = d3.selectAll('circle')[0].length;
       console.log('currentTrips',currentTrips);
       $('.tripCount').text(currentTrips);
-      $('.day').val(dayOfMonth);
+      $('.day').text(dayOfMonth);
 
     };
 
@@ -40,7 +39,7 @@ alt="Built at Hack Reactor"></div> \
 
     });
 
-    $('.wholeMonth').on('click', function(){
+    var autoAdvance = function(){
       generateVis(dayOfMonth);
       var monthCascade = setInterval(
         function(){
@@ -49,7 +48,6 @@ alt="Built at Hack Reactor"></div> \
             clearInterval(monthCascade);
           });
 
-
           generateVis(dayOfMonth);
           dayTripUpdater();
           dayOfMonth++;
@@ -57,7 +55,9 @@ alt="Built at Hack Reactor"></div> \
           if(dayOfMonth >= 32){
             dayOfMonth = 1;
           }
-        }, 3000
+        }, 4000
       );
-    });
+    }();
+
+    // );
   });
