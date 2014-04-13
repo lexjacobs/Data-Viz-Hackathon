@@ -25,8 +25,10 @@ var generateVis = function(selectedDay){
 
   var dataset = datasetLoader(selectedDay);
 
-  var xScaler = 28000;
-  var yScaler = 18500;
+  var xScaler = 17000;
+  var yScaler = 17000;  
+  // var xScaler = 27000;
+  // var yScaler = 17500;
 
   var latScaler = function(n){
     return (n - 37.771058) * xScaler;
@@ -43,17 +45,19 @@ var generateVis = function(selectedDay){
 
 
   circles = svg.selectAll('circle')
-    .attr('cx', function(d){
+    .attr('cy', function(d){
       // console.log('selectedDay: ', selectedDay);
       if(d[4] === selectedDay || selectedDay === 'all'){
-        return latScaler(d[0])+10;
+        return (w-latScaler(d[0]))-10;
+        // return latScaler(d[0])+10;
       }
     })
-    .attr('cy', function(d){
+    .attr('cx', function(d){
       // console.log('latd1', longScaler(d[1]));
       if(d[4] === selectedDay || selectedDay === 'all'){
         // console.log(d[4]);
-        return longScaler(d[1])+10;
+        return (h-longScaler(d[1]))-10;
+        // return longScaler(d[1])+10;
       }
     })
     .attr('r', 1);
@@ -63,18 +67,20 @@ var generateVis = function(selectedDay){
     .transition()
     .delay(300)
     .duration(3400)
-    .attr('cx', function(d){
+    .attr('cy', function(d){
       // console.log('latd2', latScaler(d[2]));
       // console.log(d[4]);
       if(d[4] === selectedDay){
-        return latScaler(d[2])+10;
+        return (w-latScaler(d[2]))-10;
+        // return latScaler(d[2])+10;
       }
     })
-    .attr('cy', function(d){
+    .attr('cx', function(d){
       // console.log('latd3', longScaler(d[3]));
       // console.log(d[4]);
       if(d[4] === selectedDay){
-        return longScaler(d[3])+10;
+        return (h-longScaler(d[3]))-10;
+        // return longScaler(d[3])+10;
       }
     })
     .attr('r', 1);
